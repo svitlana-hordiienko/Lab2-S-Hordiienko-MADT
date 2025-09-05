@@ -63,9 +63,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 final int charCount = TextCounter.countCharacters(MainActivity.this, input);
                 final int wordCount = TextCounter.countWords(MainActivity.this, input);
 
-                if (spinner1.getSelectedItem().equals("words")) {
+                if (spinner1.getSelectedItem().equals("words") && wordCount != 0) {
                     Toast.makeText(getApplicationContext(), "Words: " + wordCount, Toast.LENGTH_LONG).show();
-                } else if (spinner1.getSelectedItem().equals("characters")) {
+                } else if (spinner1.getSelectedItem().equals("characters") && charCount != 0) {
                     Toast.makeText(getApplicationContext(), "Characters: " + charCount, Toast.LENGTH_LONG).show();
                 }
             }
