@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             return insets;
         });
 
+        //setup of an adapter for the spinner element based on a GeeksForGeeks tutorial
         this.editText1 = findViewById(R.id.editText1);
         this.countButton1 = findViewById(R.id.countButton);
         this.spinner1 = findViewById(R.id.spinner1);
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         countButton1.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //main method for the onclick event based on the chosen option of the spinner element
                 final String input = editText1.getText().toString();
                 final int charCount = TextCounter.countCharacters(MainActivity.this, input);
                 final int wordCount = TextCounter.countWords(MainActivity.this, input);
@@ -72,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //                } else if (spinner1.getSelectedItem().equals("characters") && charCount != 0) {
 //                    Toast.makeText(getApplicationContext(), "Characters: " + charCount, Toast.LENGTH_LONG).show();
 //                }
+
+                //replaced if structure by a switch for cleaner code
                 String selected = spinner1.getSelectedItem().toString();
 
                 switch (selected) {

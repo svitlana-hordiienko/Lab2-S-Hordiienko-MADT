@@ -3,9 +3,10 @@ package com.example.lab2_hordiienko_madt;
 import android.content.Context;
 import android.widget.Toast;
 
+//This class is responsible for the operations with the counting of words/chars/numbers/sentences in a string
 public class TextCounter {
 
-    public static int countCharacters(Context context, String input) {
+    public static int countCharacters(Context context, String input) { //character count without usage of regular expressions
         if (input == null) {
             Toast.makeText(context, "The string is empty", Toast.LENGTH_LONG).show();
             return 0;
@@ -13,7 +14,7 @@ public class TextCounter {
         return input.length();
     }
 
-    public static int countWords(Context context, String input) {
+    public static int countWords(Context context, String input) { //word count with usage of regular expressions
         if (input == null || input.trim().isEmpty()) {
             Toast.makeText(context, "The string is empty", Toast.LENGTH_LONG).show();
             return 0;
@@ -23,7 +24,7 @@ public class TextCounter {
         return words.length;
     }
 
-    public static int countNumbers(Context context, String input) {
+    public static int countNumbers(Context context, String input) { //number count with usage of regular expressions
         if (input == null || input.trim().isEmpty()) {
             Toast.makeText(context, "The string is empty", Toast.LENGTH_LONG).show();
             return 0;
@@ -38,7 +39,7 @@ public class TextCounter {
         return count;
     }
 
-    public static int countSentences(Context context, String input) {
+    public static int countSentences(Context context, String input) { //sentence count without usage of regex
         if (input == null || input.trim().isEmpty()) {
             Toast.makeText(context, "The string is empty", Toast.LENGTH_LONG).show();
             return 0;
