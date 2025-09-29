@@ -26,7 +26,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private final String[] countChoices = {
             "words",
-            "characters"
+            "characters",
+            "sentences",
+            "numbers"
     };
 
     @Override
@@ -62,11 +64,36 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 final String input = editText1.getText().toString();
                 final int charCount = TextCounter.countCharacters(MainActivity.this, input);
                 final int wordCount = TextCounter.countWords(MainActivity.this, input);
+                final int sentenceCount = TextCounter.countSentences(MainActivity.this, input);
+                final int numberCount = TextCounter.countNumbers(MainActivity.this, input);
 
-                if (spinner1.getSelectedItem().equals("words") && wordCount != 0) {
-                    Toast.makeText(getApplicationContext(), "Words: " + wordCount, Toast.LENGTH_LONG).show();
-                } else if (spinner1.getSelectedItem().equals("characters") && charCount != 0) {
-                    Toast.makeText(getApplicationContext(), "Characters: " + charCount, Toast.LENGTH_LONG).show();
+//                if (spinner1.getSelectedItem().equals("words") && wordCount != 0) {
+//                    Toast.makeText(getApplicationContext(), "Words: " + wordCount, Toast.LENGTH_LONG).show();
+//                } else if (spinner1.getSelectedItem().equals("characters") && charCount != 0) {
+//                    Toast.makeText(getApplicationContext(), "Characters: " + charCount, Toast.LENGTH_LONG).show();
+//                }
+                String selected = spinner1.getSelectedItem().toString();
+
+                switch (selected) {
+                    case "words":
+                        if (wordCount != 0) {
+                            Toast.makeText(getApplicationContext(), "Words: " + wordCount, Toast.LENGTH_LONG).show();
+                        }
+                    case "characters":
+                        if (charCount != 0) {
+                            Toast.makeText(getApplicationContext(), "Characters: " + charCount, Toast.LENGTH_LONG).show();
+                        }
+                    case "sentences":
+                        if (sentenceCount != 0) {
+                            Toast.makeText(getApplicationContext(), "Sentences: " + sentenceCount, Toast.LENGTH_LONG).show();
+                        }
+                    case "numbers":
+                        if (numberCount != 0) {
+                            Toast.makeText(getApplicationContext(), "Numbers: " + numberCount, Toast.LENGTH_LONG).show();
+                        }
+                    default:
+                        Toast.makeText(getApplicationContext(), "Please select a valid option", Toast.LENGTH_LONG).show();
+                        break;
                 }
             }
         });
